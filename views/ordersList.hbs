@@ -1,0 +1,53 @@
+<div class="header">
+
+  <h1>Crepeníficos</h1>
+
+  <button id="ASong" style="display:none">
+    <audio src="sounds/add.wav" autoplay></audio>
+    <audio src="sounds/error.wav" autoplay></audio>
+    <audio src="sounds/trash.wav" autoplay></audio>
+    <audio src="sounds/backOrder.wav" autoplay></audio>
+    Sounds
+  </button>
+
+  <button id="updateTableUnUsed" class="ui-button ui-widget ui-corner-all"  style="position: absolute; left: 20px; top: 15px;">Atualizar Tudo</button>
+</div>
+
+<div class="allOrders-container">
+<table id="allOrders" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Ação</th>
+                <th>Senha</th>
+                <th>Pedido</th>
+                <th>Status</th>
+                <th>Dt. Pedido</th>
+            </tr>
+        </thead>
+        <tbody id="allOrdersUnUsed">
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+              <th>Ação</th>
+              <th>Senha</th>
+              <th>Pedido</th>
+              <th>Status</th>
+              <th>Dt. Pedido</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div style="display:none" id="div-dialog-warning">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span> Opss, ocorreu um erro!<div/></p>
+</div>
+
+<div style="display:none" id="div-dialog-success">
+
+    <div class="success-animation">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+    </div>
+
+</div>

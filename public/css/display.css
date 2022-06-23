@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font: 16px "Mouse Memoirs";
+  background: #ffbe00;
+  color: #523118;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+  padding: 0em 0 0.5em;
+  background-image: repeating-linear-gradient(45deg, #020838, #071056 100px, #051066 100px, #000a38 200px);
+  color: #f0dccd;
+  /*box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0.25) inset;*/
+}
+.header h1 {
+  font-size: 3em;
+}
+.header p {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.allOrders-container{
+  background: #FFF;
+  padding: 20px;
+}
+
+.orders-container-progress {
+  width: 100%;
+  height: 250px;
+  display: table;
+}
+.orders-container-progress .emptyProgress {
+  font-size: 3em;
+  width: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.orders-container-queue {
+  width: 100%;
+  height: 250px;
+  display: table;
+}
+.orders-container-queue .emptyQueue {
+  font-size: 3em;
+  width: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.orders-container-delivery {
+  width: 100%;
+  height: 250px;
+  display: table;
+}
+.orders-container-delivery .emptyDelivery {
+  font-size: 3em;
+  width: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.ordersblc{
+  color: #000;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-size: 1.5em;
+  border-top: 1px dashed #020838;
+}
+
+.orders {
+  list-style: none;
+  height: 250px;
+  width: 10000px;
+  position: relative;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+.orders .product {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  float: left;
+}
+
+.orders .product:hover {
+  z-index: 1;
+}
+.orders .product:nth-child(3n+1) .product-preview, .orders .product:nth-child(3n+1) .product-interactions {
+  background: #f1d5a5;
+}
+.orders .product:nth-child(3n+2) .product-preview, .orders .product:nth-child(3n+2) .product-interactions {
+  background: #EFD09C;
+}
+.orders .product:nth-child(3n) .product-preview, .orders .product:nth-child(3n) .product-interactions {
+  background: #f1d5a5;
+}
+.orders .product .product-preview {
+  padding: 1em;
+  height: 250px;
+  position: relative;
+}
+.orders .product .product-preview .thumbnail {
+  width: 100%;
+  min-height: 120px;
+  max-height: 200px;
+}
+.orders .product .product-preview .thumbnail .image {
+  width: 100%;
+  margin-top: 1em;
+}
+.orders .product .product-preview .product-paper {
+  position: absolute;
+  height: 55px;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 0.5em;
+  display: block;
+  width: 100%;
+  margin-left: -1em;
+}
+.orders .product .product-preview .product-name {
+  font-size: 2.1em;
+  text-align: center;
+}
+.orders .product .product-preview .product-price {
+  text-align: center;
+  font-size: 1.2em;
+}
+.orders .product .product-quantity {
+  font-size: 4.5em;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  padding: 0.18em 0;
+  border-radius: 1em;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: #fff;
+  transform: rotateZ(10deg);
+  backface-visibility: hidden;
+}
+.orders .product:hover .product-interactions, .orders .product .visible {
+  opacity: 1 !important;
+  transform: perspective(600px) rotateX(0deg) !important;
+}
+.orders .product .product-interactions {
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.4);
+  transform-origin: 50% 100% 0;
+  transform: perspective(600px) rotateX(90deg);
+  opacity: 0;
+  transition: 0.4s all ease-in-out;
+  display: table;
+}
+.orders .product .product-interactions .button {
+  width: 32%;
+  height: 60px;
+  float: left;
+  text-align: center;
+  font-size: 5em;
+  line-height: 0.75em;
+  color: #999;
+  background: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  user-select: none;
+  transition: 1.0s all ease-in-out;
+  transform-origin: 50% 0 0;
+  transform: perspective(600px);
+  z-index: 0;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+.orders .product .product-interactions .button.plus {
+  color: #7fb034;
+}
+.orders .product .product-interactions .button.minus {
+  color: #a0ce5a;
+}
+.orders .product .product-interactions .button.btnDoneProgress {
+width: 100%;
+font-size: 1.5em;
+}
+.orders .product .product-interactions .button.btnDoneProgress:after {
+  content: "Concluído";
+  position: absolute;
+  color:green;
+  left: 33%;
+  margin-top: 10%;
+}
+
+.orders .product .product-interactions .button.btnDelivered {
+width: 100%;
+font-size: 1.5em;
+}
+.orders .product .product-interactions .button.btnDelivered:after {
+  content: "Entregue";
+  position: absolute;
+  color:blue;
+  left: 33%;
+  margin-top: 10%;
+}
+
+.orders .product .product-interactions .button.btnInProgress {
+width: 100%;
+font-size: 1.5em;
+}
+
+.orders .product .product-interactions .button.btnInProgress:after {
+  content: "Iniciar";
+  position: absolute;
+  color:red;
+  left: 38%;
+  margin-top: 10%;
+}
+
+.orders .product .product-interactions .button:nth-child(1), .orders .product .product-interactions .button:nth-child(2) {
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.orders .product .product-interactions .button:nth-child(2) {
+  width: 36%;
+}
+.orders .product .product-interactions .button:active {
+  font-size: 7em;
+  background: #fff !important;
+  box-shadow: 0 0 0 10px #fff !important;
+  z-index: 10;
+  line-height: 0.45em;
+}
+.orders .product .product-interactions .button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.success-animation { margin:0px auto;}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position:relative;
+    top: 5px;
+    right: 5px;
+   margin: 0 auto;
+}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}
