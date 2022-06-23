@@ -1,7 +1,7 @@
 // DB ------------
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('dbcrepenificos', 'root', '123456987', {
-  host: "localhost",
+  host: "34.132.95.98",
   dialect: 'mysql'
 })
 
@@ -36,7 +36,7 @@ const Orders = sequelize.define('orders',{
   }
 });
 
-//Orders.sync({force:true});
+Orders.sync({force:true});
 
 /*Pedidos.create({
   code: "123",
