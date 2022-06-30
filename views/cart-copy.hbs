@@ -4,7 +4,7 @@
   {{#if scanQrCode}}
   <video id="preview" width="160" height="160"></video>
   <script type="text/javascript">
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), backgroundScan: true, refractoryPeriod: 2000, });
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), backgroundScan: true, refractoryPeriod: 2000, });
     scanner.addListener('scan', function (content) {
       console.log(content);
       add(content);

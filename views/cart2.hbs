@@ -72,3 +72,23 @@
     </div>
 
 </div>
+
+
+<div style="display:none" id="dialog-payback" title="Troco">
+    <table class="bill">
+      <tr class="total">
+        <td class="label">Total:</td>
+        <td class="value">R$ 0.00</td>
+      </tr>
+      <tr class="amountReceived">
+        <td class="label">Recebido:</td>
+        <td class="value">R$ <input type="text" name="valorRecebido" id="amountReceivedByClient" value="" class="text ui-widget-content ui-corner-all" style="width:100px;">
+        </td>
+      </tr>
+      <tr class="amountPayback">
+        <td class="label">Troco:</td>
+        <td class="value">R$ <span class="paybackValue"></span></td>
+      </tr>
+    </table>
+    <div style="text-align:center;"><button type="button" class="ui-button ui-widget ui-corner-all processOrder" style="background-color: green; color:#FFF; padding:20px; margin-top:20px;">Finalizar</button></div>
+</div>

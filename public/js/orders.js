@@ -24,7 +24,7 @@ function updateUnUsed() {
   });
 }
 function updateInQueue() {
-  $.getJSON('/getAllInQueue', (data) => {
+  $.getJSON('/getSixInQueue', (data) => {
     var items = [];
     $.each( data, function( key, val ) {
 
@@ -124,9 +124,21 @@ updateInQueue();
 updateInProgress();
 updateInDelivery();
 
+setInterval(function () {
+  updateInQueue();
+  updateInProgress();
+  updateInDelivery();
+}, 5000);
+
 $(document).ready(function () {
     var table = $('#allOrders').DataTable({
-      order: [[3, 'desc']]
+      order: [[4, 'desc']],
+      paging: false,
+      searching: false,
+      ordering: false,
+      columnDefs: [
+        { "width": "150px", "targets": 0 }
+      ]
     });
 
 });

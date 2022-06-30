@@ -19,17 +19,35 @@ appRoutes.get('/', (req, res, next) => {
 });
 
 appRoutes.get('/display', (req, res, next) => {
-  res.render('display', {
-        layout: 'mainDisplay'
+  res.render('display2', {
+        layout: 'mainDisplay2'
   });
 });
 
+/*
+appRoutes.get('/display2', (req, res, next) => {
+  res.render('display2', {
+        layout: 'mainDisplay2'
+  });
+});
+*/
+
 appRoutes.get('/cart', (req, res, next) => {
-    res.render('cart', {
-        layout: 'mainCart',
+    res.render('cart2', {
+        layout: 'mainCart2',
         scanQrCode: true
     });
 });
+
+/*
+appRoutes.get('/cart2', (req, res, next) => {
+    res.render('cart2', {
+        layout: 'mainCart2',
+        scanQrCode: true
+    });
+});
+*/
+
 appRoutes.get('/orders', (req, res, next) => {
     res.render('orders', {
         layout: 'mainOrders'
@@ -41,10 +59,16 @@ appRoutes.get('/ordersList', (req, res, next) => {
     });
 });
 
+appRoutes.get('/ordersListQueue', (req, res, next) => {
+    res.render('ordersListQueue', {
+        layout: 'mainOrdersQueue'
+    });
+});
+
 appRoutes.post('/order', (req, res, next) => {
 
   const code = req.body.code;
-  //console.log(code);
+  console.log(code);
   var condition = code ? { code: { [Op.eq]: `${code}` } } : null;
   Orders.findOne({ where: condition })
     .then(data => {
@@ -243,6 +267,20 @@ appRoutes.post('/orderPutDelivered', (req, res, next) => {
 
 });
 
+
+appRoutes.get('/getAllUnUsedQueue', (req, res, next) => {
+
+  Orders.findAll({ where: { status: '1' },  order: [['updatedAt', 'ASC']] })
+    .then(data => {
+      res.status(200).send((JSON.stringify(data)));
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving order with status=1"
+      });
+    });
+
+});
 appRoutes.get('/getAllUnUsed', (req, res, next) => {
 
   Orders.findAll({ where: { status: '0' },  order: [['createdAt', 'DESC']] })
@@ -257,6 +295,19 @@ appRoutes.get('/getAllUnUsed', (req, res, next) => {
 
 });
 appRoutes.get('/getAllInQueue', (req, res, next) => {
+
+  Orders.findAll({ where: { status: '1'}, order: [['updatedAt', 'ASC']]})
+    .then(data => {
+      res.status(200).send((JSON.stringify(data)));
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving order with status=1"
+      });
+    });
+
+});
+appRoutes.get('/getSixInQueue', (req, res, next) => {
 
   Orders.findAll({ where: { status: '1'}, limit: 6, order: [['updatedAt', 'ASC']]})
     .then(data => {

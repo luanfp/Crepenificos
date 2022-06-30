@@ -12,13 +12,13 @@ html, body {
 
 .header {
   text-align: center;
-  padding: 0em 0 0.5em;
+  padding: 1em 0 1.5em;
   background-image: repeating-linear-gradient(45deg, #020838, #071056 100px, #051066 100px, #000a38 200px);
   color: #f0dccd;
   /*box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0.25) inset;*/
 }
 .header h1 {
-  font-size: 3em;
+  font-size: 6em;
 }
 .header p {
   font-size: 1.2em;
@@ -30,17 +30,13 @@ html, body {
   padding: 20px;
 }
 
-#allOrders td:nth-child(2) {
-  font-size: 2em;
-}
-
 .orders-container-progress {
   width: 100%;
   height: 250px;
   display: table;
 }
 .orders-container-progress .emptyProgress {
-  font-size: 3em;
+  font-size: 6em;
   width: 100%;
   text-align: center;
   display: table-cell;
@@ -65,8 +61,9 @@ html, body {
   height: 250px;
   display: table;
 }
+
 .orders-container-delivery .emptyDelivery {
-  font-size: 3em;
+  font-size: 6em;
   width: 100%;
   text-align: center;
   display: table-cell;
@@ -79,41 +76,44 @@ html, body {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
-  font-size: 1.5em;
-  border-top: 1px dashed #020838;
+  font-size: 3em;
+  /*border-top: 1px dashed #020838;*/
 }
 
 .orders {
+  /*background-color: red;*/
   list-style: none;
-  height: 250px;
+  height: 370px;
   width: 10000px;
   position: relative;
   left: 0;
   transform: translate3d(0, 0, 0);
 }
+
 .orders .product {
   position: relative;
-  width: 200px;
+  width: 300px;
   height: 250px;
   float: left;
-}
-
-
-#inprogress .product:hover {
-  opacity: 1.0;
-	-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity= 100); /* // for IE8 */
-	filter: alpha(opacity= 100); /* //for IE5-7 */
-}
-
-#indelivery .product:hover {
-  opacity: 1.0;
-	-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity= 100); /* // for IE8 */
-	filter: alpha(opacity= 100); /* //for IE5-7 */
 }
 
 .orders .product:hover {
   z-index: 1;
 }
+
+.orders .product .product-preview{
+  background-color: #f1d5a5;
+}
+/*
+.orders-container-progress .orders .product .product-preview{
+  background-color: #f1d5a5;
+}
+
+.orders-container-delivery .orders .product .product-preview{
+  background-color: green;
+}
+*/
+/*
 .orders .product:nth-child(3n+1) .product-preview, .orders .product:nth-child(3n+1) .product-interactions {
   background: #f1d5a5;
 }
@@ -123,9 +123,11 @@ html, body {
 .orders .product:nth-child(3n) .product-preview, .orders .product:nth-child(3n) .product-interactions {
   background: #f1d5a5;
 }
+*/
+
 .orders .product .product-preview {
   padding: 1em;
-  height: 250px;
+  height: 370px;
   position: relative;
 }
 .orders .product .product-preview .thumbnail {
@@ -151,16 +153,17 @@ html, body {
   font-size: 2.1em;
   text-align: center;
 }
+
 .orders .product .product-preview .product-price {
   text-align: center;
   font-size: 1.2em;
 }
 .orders .product .product-quantity {
-  font-size: 3em;
-  width: 2em;
-  height: 2em;
+  font-size: 5.5em;
+  width: 1.5em;
+  height: 1.5em;
   text-align: center;
-  padding: 0.35em 0;
+  padding: 0.18em 0;
   border-radius: 1em;
   position: absolute;
   top: 0.5em;
@@ -170,16 +173,10 @@ html, body {
   backface-visibility: hidden;
 }
 
-.orders-container-queue .product-quantity{
-  color:#FFF;
-  background: red !important;
-}
-
 .orders-container-delivery .product-quantity{
   color:#FFF;
   background: green !important;
 }
-
 
 .orders .product:hover .product-interactions, .orders .product .visible {
   opacity: 1 !important;
